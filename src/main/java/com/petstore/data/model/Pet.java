@@ -1,7 +1,10 @@
 package com.petstore.data.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
@@ -28,6 +31,8 @@ public class Pet {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @ToString.Exclude
+    @JsonIgnore
     private Store store;
+
 
 }

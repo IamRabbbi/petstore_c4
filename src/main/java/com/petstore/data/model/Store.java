@@ -2,6 +2,7 @@ package com.petstore.data.model;
 
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Store {
 
     private String contactNo;
 
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "store",cascade = {CascadeType.ALL}, orphanRemoval = true)
     private List<Pet> petList;
 
     public void addPets(Pet pet){
